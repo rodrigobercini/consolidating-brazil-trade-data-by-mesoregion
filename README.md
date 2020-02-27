@@ -23,9 +23,9 @@ Although the main goal of this repo is to consolidate mesoregion trade data, one
 
 Raw data:
 
-![Raw data](https://raw.githubusercontent.com/rodrigobercinimartins/BR-meso-region-trade-data/master/Readme%20files/Raw%20data.jpg?token=AEOM3SZHAV527OTRESRS2G26K4J5Y)
+![Raw data](https://raw.githubusercontent.com/rodrigobercinimartins/BR-meso-region-trade-data/master/Readme%20files/Raw%20data.jpg)
 
 After exp_municip()/imp_municip():
 
-![After exp_municip()/imp_municip()](https://raw.githubusercontent.com/rodrigobercinimartins/BR-meso-region-trade-data/master/Readme%20files/After%20functions.jpg?token=AEOM3S2INNVBEOVOY3URGEC6K4J3M)
+![After exp_municip()/imp_municip()](https://raw.githubusercontent.com/rodrigobercinimartins/BR-meso-region-trade-data/master/Readme%20files/After%20functions.jpg)
 
