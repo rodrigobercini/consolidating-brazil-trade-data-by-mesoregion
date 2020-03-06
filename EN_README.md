@@ -17,6 +17,29 @@ There were mismatches for about 1.000 municipalities regarding MDIC and IBGE dat
 
 [Municipalities/states codes and names](https://drive.google.com/open?id=1FU_1V7yYW-jILYy-KPW7UgvtYfYU7jRk)
 
+## How to use
+
+First, one has to call scrape_exp_municip() with the desired years as input, this will scrape MDIC and save files in the local system. Then, call save_meso_data_exports again with the desired years, the function will call the other functions, that will consolidate the data and save the files in the local system.
+
+### Example
+
+scrape_exp_municip(2018, 2019)
+
+MDIC data scraped and saved in local system
+
+save_meso_data_exports(2018, 2019)
+
+Data consolidated and saved in local system
+
+```
+imp_municip done for 2018
+imp_meso done for 2018
+Save imports done for 2018
+imp_municip done for 2019
+imp_meso done for 2019
+Save imports done for 2019
+```
+
 # Other uses
 
 Although the main goal of this repo is to consolidate mesoregion trade data, one could use the exp_municip() or imp_municip() functions to consolidate bulk municipality data with municipalities names and UFs, since the files provided by MDIC contains only their code.
