@@ -60,7 +60,7 @@ def exp_meso(x, y=''):
 
 #############
 ### Chama exp_meso() e salva os dados por mesorregiões como CSV
-### Os arquivos são seprados por ano porque um arquivo único seria grande demais
+### Os arquivos são separados por ano porque um arquivo único seria grande demais
 #############
 
 def save_meso_data_exports(x, y=''):
