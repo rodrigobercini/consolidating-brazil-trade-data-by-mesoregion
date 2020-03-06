@@ -1,3 +1,7 @@
+import pandas as pd
+import os
+import wget
+
 #############
 ### Scrapes MDIC official website for imports by municipalities and saves files in system
 #############
