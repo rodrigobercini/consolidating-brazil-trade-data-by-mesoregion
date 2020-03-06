@@ -11,7 +11,7 @@ def scrape_imp_municip(x, y=''):
         y = x
         
     if not os.path.exists('By Municip and HS4/IMP'):
-        os.makedirs('By Municip and HS4/IMP')  # Create directory if doesn't exist
+        os.makedirs('By Municip and HS4/IMP')  # Cria pasta caso não exista
         
     for i in range(x, y+1):
         url = ''.join(('http://www.mdic.gov.br/balanca/bd/comexstat-bd/mun/IMP_', str(i), '_MUN.csv'))
@@ -27,13 +27,13 @@ def imp_municip(x,y=''):
         y = x
     d={}
     for i in range(x,y+1):
-        file = ''.join(('By Municip and HS4/IMP/IMP_', str(i),'_MUN.csv')) # Defines file with import data
-        dummy = pd.read_csv(file, sep=';') # Imports import data
-        municip_codes = pd.read_excel('1_County_Codes.xlsx') # Import municipalities codes and names
-        d['imp_municip_{0}'.format(i)] = dummy.merge(municip_codes, left_on= 'CO_MUN', right_on='Código Município Completo (MDIC)') # Merges trade data and municipalities names
+        file = ''.join(('By Municip and HS4/IMP/IMP_', str(i),'_MUN.csv')) # Define arquivo com dados de importação
+        dummy = pd.read_csv(file, sep=';') # Lê dados de importação
+        municip_codes = pd.read_excel('1_County_Codes.xlsx') # Lê dados de municípios
+        d['imp_municip_{0}'.format(i)] = dummy.merge(municip_codes, left_on= 'CO_MUN', right_on='Código Município Completo (MDIC)') # Cruza dados de importação com dados de municípios
         d['imp_municip_{0}'.format(i)].drop(['Município', 'CO_MUN', 'Nome_Microrregião',
                                             'Microrregião Geográfica',
-                                            'Código Município Completo (MDIC)'], axis=1, inplace=True)  # Drops unnecessary columns
+                                            'Código Município Completo (MDIC)'], axis=1, inplace=True)  # Deleta colunas desnecessárias
         print('imp_municip done for {0}'.format(i))
     return d
 
@@ -47,8 +47,8 @@ def imp_meso(x, y=''):
     d = imp_municip(x,y)
     b={}
     for i in range(x,y+1):
-        b['imp_meso_{0}'.format(i)] = d['imp_municip_{0}'.format(i)].groupby(['CO_ANO','Nome_Mesorregião','CD_GEOCME', 'CO_MES', 'CO_PAIS', 'SH4'],as_index=False).sum() # Consolidates trade data by mesoregion
-        b['imp_meso_{0}'.format(i)].drop(['UF', 'Mesorregião Geográfica', 'Código Município Completo (IBGE)'], axis=1, inplace=True) # Drops unnecessary columns
+        b['imp_meso_{0}'.format(i)] = d['imp_municip_{0}'.format(i)].groupby(['CO_ANO','Nome_Mesorregião','CD_GEOCME', 'CO_MES', 'CO_PAIS', 'SH4'],as_index=False).sum() # Consolida dados por mesorregião
+        b['imp_meso_{0}'.format(i)].drop(['UF', 'Mesorregião Geográfica', 'Código Município Completo (IBGE)'], axis=1, inplace=True) # Deleta colunas desnecessárias
         print('imp_meso done for {0}'.format(i))
     return b
 
@@ -63,7 +63,7 @@ def save_meso_data_imports(x, y=''):
         y = x
         
     if not os.path.exists('By MesoRegion and HS4/IMP/'):
-        os.makedirs('By MesoRegion and HS4/IMP/')  # Create directory if doesn't exist
+        os.makedirs('By MesoRegion and HS4/IMP/')  # Cria pasta caso não exista
         
     for i in (range(x, y+1)):
         e = imp_meso(i)
