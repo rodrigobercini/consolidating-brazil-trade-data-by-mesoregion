@@ -1,4 +1,4 @@
-# Consolidation Brazilian Mesoregion trade data
+# Consolidating Brazilian Mesoregion trade data
 
 The brazilian trade data is provided by Ministério da Indústria, Comércio Exterior e Serviços (MDIC) at their [official website](http://www.mdic.gov.br/index.php/comercio-exterior/estatisticas-de-comercio-exterior/base-de-dados-do-comercio-exterior-brasileiro-arquivos-para-download), where users can download trade data by municipality and state. There is no option to download trade data by [Mesoregion](https://en.wikipedia.org/wiki/Mesoregions_of_Brazil).
 
