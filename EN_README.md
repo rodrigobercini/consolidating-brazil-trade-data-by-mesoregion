@@ -4,7 +4,7 @@ The brazilian trade data is provided by Ministério da Indústria, Comércio Ext
 
 This repository contains a python code that scrapes MDIC website, merges raw municipalities trade data with municipalities names and codes, groups data by Mesoregion and finally outputs .csv files.
 
-# Needed libraries
+# Necessary libraries
 
 ```
 pip install pandas
