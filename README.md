@@ -16,6 +16,30 @@ pip install wget
 
 [Códigos e nomes de municípios e regiões](https://drive.google.com/open?id=1FU_1V7yYW-jILYy-KPW7UgvtYfYU7jRk) - Havia cerca de 1.000 municípios com códigos inconsistentes ao cruzar as tabelas do MDIC e do IBGE. Através de uma série de Procvs e engenheria de recursos, a tabela abaixo contém os códigos corretos e atualizados.
 
+## Como usar
+
+Primeiramente, é preciso rodar a função scrape_exp_municip com os anos desejados, isso irá extrair dados do MDIC e salvar no sistema. Depois, chamar a função save_meso_data_imports novamente com os anos desejados, ela chamará as outras funções e salvará os dados consolidados no sistema.
+
+### Exemplo
+
+scrape_exp_municip(2018, 2019)
+
+Dados extraídos do MDIC e salvos no sistema
+
+save_meso_data_exports(2018, 2019)
+
+Dados consolidados e salvos no sistema
+
+```
+imp_municip done for 2018
+imp_meso done for 2018
+Save imports done for 2018
+imp_municip done for 2019
+imp_meso done for 2019
+Save imports done for 2019
+```
+
+
 ## Outros usos
 
 Embora o objetivo final deste repositório ser a consolidação de dados por mesorregião, as funções exp_municip() e imp_municip() consolidam valores comercializados por municípios com seus nomes, o que é útil já que os dados brutos providos pelo MDIC só possuem o código de município, impossibilitando sua análise.
