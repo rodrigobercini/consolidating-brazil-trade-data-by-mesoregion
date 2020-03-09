@@ -3,7 +3,7 @@ import os
 import wget
 
 #############
-### Extrai dados de importações por município dos anos x à y e salva tabelas no sisema
+### Extrai dados de importações por município dos anos x à y e salva tabelas no sistema
 #############
 
 def scrape_imp_municip(x, y=''):
@@ -17,7 +17,8 @@ def scrape_imp_municip(x, y=''):
         url = ''.join(('http://www.mdic.gov.br/balanca/bd/comexstat-bd/mun/IMP_', str(i), '_MUN.csv'))
         folder = 'By Municip and HS4/IMP'
         wget.download(url, folder)
-
+        print('\n Scrape done for {0}'.format(i))
+        
 #############
 ### Cria um dicionários com as importações de municípios dos anos x à y
 #############
@@ -25,6 +26,10 @@ def scrape_imp_municip(x, y=''):
 def imp_municip(x,y=''):
     if y == '':
         y = x
+    
+    # Chama scrape_imp_municip() para fazer o download dos dados
+    scrape_imp_municip(x, y)
+        
     d={}
     for i in range(x,y+1):
         file = ''.join(('By Municip and HS4/IMP/IMP_', str(i),'_MUN.csv')) # Define arquivo com dados de importação
@@ -58,7 +63,7 @@ def imp_meso(x, y=''):
 ### Os arquivos são separados por ano porque um arquivo único seria grande demais
 #############
 
-def save_meso_data_imports(x, y=''):
+def imp_by_meso(x, y=''):
     if y == '':
         y = x
         
