@@ -14,7 +14,7 @@ pip install wget
 
 ## Arquivo necessário com códigos de municípios e regiões
 
-[Códigos e nomes de municípios e regiões](https://drive.google.com/open?id=1FU_1V7yYW-jILYy-KPW7UgvtYfYU7jRk) - Havia cerca de 1.000 municípios com códigos inconsistentes ao cruzar as tabelas do MDIC e do IBGE. Através de uma série de Procvs e engenheria de recursos, a tabela abaixo contém os códigos corretos e atualizados.
+[Códigos e nomes de municípios e regiões](https://drive.google.com/open?id=1FU_1V7yYW-jILYy-KPW7UgvtYfYU7jRk) - Há cerca de 1.000 municípios com códigos inconsistentes ao cruzar as tabelas do MDIC e do IBGE. Através de uma série de Procvs e engenheria de recursos, esta contém os códigos corretos e atualizados.
 
 ## Como usar
 
