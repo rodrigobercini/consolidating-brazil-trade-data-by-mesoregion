@@ -18,31 +18,25 @@ pip install wget
 
 ## Como usar
 
-Primeiramente, é preciso rodar a função scrape_exp_municip com os anos desejados, isso irá extrair dados do MDIC e salvar no sistema. Depois, chamar a função save_meso_data_imports novamente com os anos desejados, ela chamará as outras funções e salvará os dados consolidados no sistema.
+Primeiramente, é preciso baixar o arquivo acima e colocá-lo no mesmo diretório do código. Depois, basta chamar a função export_by_meso() com os anos desejados, ela chamará as outras funções (exp_municip() e exp_meso()) e salvará os dados consolidados no sistema.
 
-### Exemplo
+### Exemplo:
 
-scrape_exp_municip(2018, 2019)
+exports_by_meso(1997)
 
-Dados extraídos do MDIC e salvos no sistema
-
-save_meso_data_exports(2018, 2019)
-
-Dados consolidados e salvos no sistema
-
+Output:
 ```
-imp_municip done for 2018
-imp_meso done for 2018
-Save imports done for 2018
-imp_municip done for 2019
-imp_meso done for 2019
-Save imports done for 2019
+100% [........................................................................] 18727021 / 18727021
+ Scrape done for 1997
+Exp_municip done for 1997
+Exp_meso done for 1997
+Save exports done for 1997
 ```
 
 
 ## Outros usos
 
-Embora o objetivo final deste repositório ser a consolidação de dados por mesorregião, as funções exp_municip() e imp_municip() consolidam valores comercializados por municípios com seus nomes, o que é útil já que os dados brutos providos pelo MDIC só possuem o código de município, impossibilitando sua análise.
+Embora o objetivo final deste repositório ser a consolidação de dados por mesorregião, as funções exp_municip() e imp_municip() consolidam valores comercializados por municípios com seus nomes, o que é útil já que os dados brutos providos pelo MDIC possuem apenas o código dos municípios, impossibilitando sua análise.
 
 Dados brutos:
 
