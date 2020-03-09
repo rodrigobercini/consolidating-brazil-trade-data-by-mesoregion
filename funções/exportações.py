@@ -18,6 +18,7 @@ def scrape_exp_municip(x, y=''):
         url = ''.join(('http://www.mdic.gov.br/balanca/bd/comexstat-bd/mun/EXP_', str(i), '_MUN.csv'))
         folder = 'By Municip and HS4/EXP'
         wget.download(url, folder)
+        print('\n Scrape done for {0}'.format(i))
 
 
 #############
@@ -27,6 +28,10 @@ def scrape_exp_municip(x, y=''):
 def exp_municip(x,y=''):
     if y == '':
         y = x
+    
+    # Chama scrape_exp_municip() para fazer o download dos dados
+    scrape_exp_municip(x, y)
+    
     d={}
     for i in range(x,y+1):
         file = ''.join(('By Municip and HS4/EXP/EXP_', str(i),'_MUN.csv')) # Defines file with export data
@@ -37,7 +42,7 @@ def exp_municip(x,y=''):
         d['exp_municip_{0}'.format(i)].drop(['Município', 'CO_MUN', 'Nome_Microrregião',
                                             'Microrregião Geográfica',
                                             'Código Município Completo (MDIC)'], axis=1, inplace=True) # Deleta colunas desnecessárias
-        print('exp_municip done for {0}'.format(i))
+        print('Exp_municip done for {0}'.format(i))
         
         
     return d
@@ -55,15 +60,15 @@ def exp_meso(x, y=''):
     for i in range(x,y+1):
         b['exp_meso_{0}'.format(i)] = d['exp_municip_{0}'.format(i)].groupby(['CO_ANO','Nome_Mesorregião','CD_GEOCME', 'CO_MES', 'CO_PAIS', 'SH4'],as_index=False).sum() # Consolida dados por mesorregião
         b['exp_meso_{0}'.format(i)].drop(['UF', 'Mesorregião Geográfica', 'Código Município Completo (IBGE)'], axis=1, inplace=True) # Deleta colunas desnecessárias
-        print('exp_meso done for {0}'.format(i))
+        print('Exp_meso done for {0}'.format(i))
     return b
 
 #############
-### Chama exp_meso() e salva os dados por mesorregiões como CSV
+### Chama expp_meso() e salva os dados por mesorregiões como CSV
 ### Os arquivos são separados por ano porque um arquivo único seria grande demais
 #############
 
-def save_meso_data_exports(x, y=''):
+def exports_by_meso(x, y=''):
     if y == '':
         y = x   
         
