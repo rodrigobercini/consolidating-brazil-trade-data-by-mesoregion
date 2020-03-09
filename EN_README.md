@@ -19,25 +19,19 @@ There were mismatches for about 1.000 municipalities regarding MDIC and IBGE dat
 
 ## How to use
 
-First, one has to call scrape_exp_municip() with the desired years as input, this will scrape MDIC and save files in the local system. Then, call save_meso_data_exports again with the desired years, the function will call the other functions, that will consolidate the data and save the files in the local system.
+First of all, one has to download the file above and place it in the folder with the code. Then, just call exp_by_meso() with the desired years, the function will call the other functions (exp_municip() and exp_meso()), that will consolidate the data and save the files in the local system.
 
 ### Example
 
-scrape_exp_municip(2018, 2019)
+exports_by_meso(1997)
 
-MDIC data scraped and saved in local system
-
-save_meso_data_exports(2018, 2019)
-
-Data consolidated and saved in local system
-
+Output:
 ```
-imp_municip done for 2018
-imp_meso done for 2018
-Save imports done for 2018
-imp_municip done for 2019
-imp_meso done for 2019
-Save imports done for 2019
+100% [........................................................................] 18727021 / 18727021
+ Scrape done for 1997
+Exp_municip done for 1997
+Exp_meso done for 1997
+Save exports done for 1997
 ```
 
 # Other uses
