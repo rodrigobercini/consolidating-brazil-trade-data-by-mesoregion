@@ -3,7 +3,6 @@ import os
 import ssl 
 
 # I'm getting SSL certificates issues when downloading files from MDIC.
-
 # The code below is a hack to get around this issue.
 try:
     _create_unverified_https_context = ssl._create_unverified_context
